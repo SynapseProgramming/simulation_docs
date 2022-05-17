@@ -53,5 +53,22 @@ The urdf folder is used to store (.urdf.xacro) and (.gazebo.xacro) files.
 
 (.gazebo.xacro) files would describe the kinematic properties of the robot such as velocity limits, coefficient of friction etc.
 
+\subsection{meshes}
+The meshes folder is used to store the various mesh files of the robot(.stl .dae).
+The mesh files are used to visualize various components of the robot(sensors, chassis) and to enable accurate collisions within gazebo.
 
+\subsection{rviz}
+The rviz folder is used to store the various rviz configs.
+
+% TODO: update launch section when more launch files are created
+\subsection{launch}
+\begin{itemize}
+ \item{
+       
+       The launch folder is used to store roslaunch files. Launch files titled simulate\_<robotname>.launch are used to launch the gazebo simulation environment and rviz.
+       }
+ \item{
+       Launch files titled view\_<robot>.launch are used to view the robots urdf model in rviz.
+       }
+\end{itemize}
 \end{document}
