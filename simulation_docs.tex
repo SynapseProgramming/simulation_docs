@@ -49,9 +49,26 @@
 \section{Package Overview}
 \subsection{urdf}
 The urdf folder is used to store (.urdf.xacro) and (.gazebo.xacro) files.
-(.urdf.xacro) files describe the transformations between the various links of the robot, along with other variables such as intertia.
-
-(.gazebo.xacro) files would describe the kinematic properties of the robot such as velocity limits, coefficient of friction etc.
+\begin{itemize}
+ \item {
+       (.urdf.xacro) files describe the transformations between the various links of the robot, along with other variables such as intertia.
+       }
+ \item{
+       (.gazebo.xacro) files would describe the kinematic properties of the robot such as velocity limits, coefficient of friction etc.
+       }
+\end{itemize}
+\subsubsection{Intel Realsense D435 camera}
+\begin{itemize}
+ \item {
+       The (\_d435.gazebo.xacro) file is used to describe the various kinematic properties of the depth camera.
+       }
+ \item{
+       The (\_d435.urdf.xacro) file is used to describe the various frames of the depth camera.
+       
+       The (<camera>\_bottom\_screw\_frame) is used as the main reference point for the depth camera. It is centered about the bottom tripod mount of the depth camera.
+       Thus, to define the position of the depth camera on the robot, we would have to provide the transformation from base link to the bottom screw frame link
+       }
+\end{itemize}
 
 \subsection{meshes}
 The meshes folder is used to store the various mesh files of the robot(.stl .dae).
