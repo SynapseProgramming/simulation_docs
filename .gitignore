@@ -1,6 +1,5 @@
 #ignore everything
-*
-*/
+latex-docs/simulation_docs/*
 
 #except these few files
 !.gitignore
