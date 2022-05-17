@@ -30,9 +30,24 @@
 %% adjust spacing for all itemize/enumerate
 
 \begin{document}
-\section{Dependencies}
+\section{Installation}
 \begin{enumerate}
- \item{install the joint state publisher: sudo apt install ros-melodic-joint-state-publisher-gui}
+ \item{Install the joint state publisher:
+       \begin{lstlisting}[language=bash]
+               $ sudo apt install ros-melodic-joint-state-publisher-gui
+       \end{lstlisting}
+       }
+ \item{
+       Next, git clone realsense package into your catkin folder and run catkinmake.
+       
+       \begin{lstlisting}[language=bash]
+       $ git clone https://github.com/pal-robotics/realsense_gazebo_plugin.git
+       \end{lstlisting}
+       
+       
+       }
+       
+       
 \end{enumerate}
 
 \end{document}
