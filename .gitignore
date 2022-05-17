@@ -3,5 +3,5 @@
 
 #except these few files
 !.gitignore
-!.simulation_docs.tex
-!.simulation_docs.pdf
+!simulation_docs.tex
+!simulation_docs.pdf
