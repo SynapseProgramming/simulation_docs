@@ -31,6 +31,9 @@
 
 \begin{document}
 
+
+\tableofcontents
+
 % TODO: add in more links whenever possible
 \section{Useful Resources}
 Robot modelling in urdf is rather tedious. Here are a couple of guides which I have found useful.
@@ -121,6 +124,7 @@ test test
 
 \section{Gazebo World from 2D Map}
 \subsection{Setup \& Installation}
+
 \begin{enumerate}
  \item{
        Ensure that the map server is installed on your system.
@@ -143,8 +147,32 @@ test test
          $ pip install --user scipy
          $ pip install --user networkx
        \end{lstlisting}
-       
-       
+       }
+ \item{
+       Lastly, navigate to your catkin\_ws folder and run catkin\_make
        }
 \end{enumerate}
+
+\subsection{Generation of stl file}
+
+\begin{enumerate}
+ \item{launch roscore}
+ \item {
+       Navigate to the folder containing the \emph{pgm} and \emph{yaml} file for the map that you would want to convert and run the following command to launch the map server.
+       \begin{lstlisting}[language=bash]
+        $ rosrun map\_server map\_server <map name>.yaml
+       \end{lstlisting}
+       }
+ \item{
+       Then, run the following command to generate the \emph{map.stl} at a given directory. (replace
+       \emph{/home/roald/Desktop/generatedmaps} with your own path)
+       
+       \begin{lstlisting}[language=bash]
+        roslaunch map2gazebo map2gazebo.launch export_dir:=/home/roald/Desktop/generatedmaps
+        \end{lstlisting}
+       }
+\end{enumerate}
+\subsection{Importing the mesh into Gazebo}
+test test
+% TODO: write out this section once we have it figured out 
 \end{document}
