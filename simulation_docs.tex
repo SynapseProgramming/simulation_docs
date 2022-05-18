@@ -64,12 +64,23 @@ Robot modelling in urdf is rather tedious. Here are a couple of guides which I h
        \end{lstlisting}
        }
  \item{
-       Next, git clone realsense package into your catkin folder and run catkinmake.
+       Next, git clone realsense package into your catkin/src folder.
        
        \begin{lstlisting}[language=bash]
        $ git clone https://github.com/pal-robotics/realsense_gazebo_plugin.git
        \end{lstlisting}
        }
+       
+ \item{
+       % https://github.com/SynapseProgramming/map2gazebo.git
+       Next, git clone the map2gazebo package into your catkin/src folder
+       
+       \begin{lstlisting}[language=bash]
+       $ git clone https://github.com/SynapseProgramming/map2gazebo.git
+       \end{lstlisting}
+       }
+       
+       
  \item{
        Enter the following command into the terminal to setup gazebo environment variables
        \begin{lstlisting}[language=bash]
@@ -77,6 +88,9 @@ Robot modelling in urdf is rather tedious. Here are a couple of guides which I h
        $ source ~/.bashrc
        \end{lstlisting}
        
+       }
+ \item{
+       Lastly, remember to run the cakin\_make command.
        }
        
        % TODO: add in the fake_world package once done.
