@@ -117,4 +117,34 @@ The rviz folder is used to store the various rviz configs.
 
 \section{Mesh Manipulation}
 test test
+
+
+\section{Gazebo World from 2D Map}
+\subsection{Setup \& Installation}
+\begin{enumerate}
+ \item{
+       Ensure that the map server is installed on your system.
+       \begin{lstlisting}[language=bash]
+     $ sudo apt install ros-melodic-map-server
+       \end{lstlisting}
+       }
+ \item{
+       Clone the \href{https://github.com/SynapseProgramming/map2gazebo.git
+       }{\emph{map2gazebo}} repository into your catkin/src folder.
+       
+       }
+ \item{
+       Navigate to the \emph{map2gazebo} package in your catkin/src folder and run the following commands.
+       
+       \begin{lstlisting}[language=bash]
+         $ pip install --user trimesh
+         $ pip install --user numpy
+         $ pip install --user pycollada
+         $ pip install --user scipy
+         $ pip install --user networkx
+       \end{lstlisting}
+       
+       
+       }
+\end{enumerate}
 \end{document}
