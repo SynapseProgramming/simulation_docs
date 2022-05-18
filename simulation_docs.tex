@@ -36,14 +36,13 @@
 
 % TODO: add in more links whenever possible
 \section{Useful Resources}
-Robot modelling in urdf is rather tedious. Here are a couple of guides which I have found useful.
+Robot modelling in urdf is rather tedious. Here are a couple of guides/tips which I have found useful.
 
 \begin{itemize}
  \item {
        \href{https://nu-msr.github.io/me495_site/lecture06_modeling.html}{URDF/xacro guide}
        }
  \item{
-       % https://classic.gazebosim.org/tutorials?tut=ros_gzplugins
        \href{   https://classic.gazebosim.org/tutorials?tut=ros_gzplugins}{Guide for gazebo plugins (used to simulate sensors/actuators in gazebo)}
        }
  \item{
@@ -51,7 +50,12 @@ Robot modelling in urdf is rather tedious. Here are a couple of guides which I h
         https://medium.com/teamarimac/integrating-sonar-and-ir-sensor-plugin-to-robot-model-in-gazebo-with-ros-656fd9452607
        }{Sonar Plugin Guide}
        }
-       
+ \item{
+       This is a folder which contains many gazebo .world files.
+       \begin{lstlisting}[language=bash]
+        /usr/share/gazebo-9/worlds
+       \end{lstlisting}
+       }
        
 \end{itemize}
 
@@ -97,6 +101,7 @@ Robot modelling in urdf is rather tedious. Here are a couple of guides which I h
 \end{enumerate}
 
 \section{Package Overview}
+% TODO: add in the worlds file in package overview
 \subsection{urdf}
 The urdf folder is used to store (.urdf.xacro) and (.gazebo.xacro) files.
 \begin{itemize}
@@ -193,7 +198,7 @@ In most cases, the generated meshes are too large for gazebo to render at a high
        }
 \end{enumerate}
 
-\subsection{Generation of stl file}
+\subsection{Generation of map.stl file}
 
 \begin{enumerate}
  \item{launch roscore}
@@ -208,21 +213,28 @@ In most cases, the generated meshes are too large for gazebo to render at a high
        \emph{/home/roald/Desktop/generatedmaps} with your own path)
        
        \begin{lstlisting}[language=bash]
-        roslaunch map2gazebo map2gazebo.launch export_dir:=/home/roald/Desktop/generatedmaps
+        $ roslaunch map2gazebo map2gazebo.launch export_dir:=/home/roald/Desktop/generatedmaps
         \end{lstlisting}
        }
 \end{enumerate}
 \subsection{Importing the mesh into Gazebo}
-test test
-% TODO: write out this section once we have it figured out
+\begin{enumerate}
+ \item {
+       Firstly, navigate to the following directory
+       \begin{lstlisting}[language=bash]
+ catkin_ws/src/map2gazebo/models/map/meshes
+        \end{lstlisting}
+       }
+ \item {
+       Replace the existing map.stl file with the newly generated map.stl file.
+       }
+ \item{
+       Launch the following command to launch the gazebo simulation with the current robot in the new map.
+       \begin{lstlisting}[language=bash]
+       $ roslaunch fake_world simulate_cub_lab.launch
+        \end{lstlisting}
+       
+       }
+\end{enumerate}
+
 \end{document}
-
-
-% TODO: this is the file path for where the worlds are gazebo.
-% /usr/share/gazebo-9/worlds
-
-
-% TODO: add in documentation for launching the world using the given launch file in map2gazebo
-
-
-% TODO: Add in documentation for using the given stl file.
