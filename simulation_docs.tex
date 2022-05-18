@@ -70,6 +70,16 @@ Robot modelling in urdf is rather tedious. Here are a couple of guides which I h
        $ git clone https://github.com/pal-robotics/realsense_gazebo_plugin.git
        \end{lstlisting}
        }
+ \item{
+       Enter the following command into the terminal to setup gazebo environment variables
+       \begin{lstlisting}[language=bash]
+       $ echo "source /usr/share/gazebo/setup.sh" >> ~/.bashrc
+       $ source ~/.bashrc
+       \end{lstlisting}
+       
+       }
+       
+       % TODO: add in the fake_world package once done.
 \end{enumerate}
 
 \section{Package Overview}
@@ -119,7 +129,23 @@ The rviz folder is used to store the various rviz configs.
 % TODO: complete the section on how to scale and manipulate stl files so that the mesh could be easily integrated into rviz
 
 \section{Mesh Manipulation}
-test test
+\subsection{Reducing the quality of a mesh}
+In most cases, the generated meshes are too large for gazebo to render at a high framerate. Thus, we would have to reduce the resolution of our meshes.
+\begin{enumerate}
+ \item {
+       Open meshlab and import the mesh (file > import mesh)
+       }
+ \item{
+       Click on Filters > Remeshing, Simplification and Reconstruction >  Quadratic edge collapse decimation
+       }
+ \item{
+       Select a lower number of (target number of faces) and click apply.
+       }
+ \item{
+       click on file > export mesh as > (enter mesh name and select \emph{.stl} file type)
+       }
+\end{enumerate}
+% TODO: add in a section on how to simply meshes in meshlab
 
 
 \section{Gazebo World from 2D Map}
@@ -160,7 +186,7 @@ test test
  \item {
        Navigate to the folder containing the \emph{pgm} and \emph{yaml} file for the map that you would want to convert and run the following command to launch the map server.
        \begin{lstlisting}[language=bash]
-        $ rosrun map\_server map\_server <map name>.yaml
+        $ rosrun map_server map_server <map name>.yaml
        \end{lstlisting}
        }
  \item{
@@ -174,5 +200,15 @@ test test
 \end{enumerate}
 \subsection{Importing the mesh into Gazebo}
 test test
-% TODO: write out this section once we have it figured out 
+% TODO: write out this section once we have it figured out
 \end{document}
+
+
+% TODO: this is the file path for where the worlds are gazebo.
+% /usr/share/gazebo-9/worlds
+
+
+% TODO: add in documentation for launching the world using the given launch file in map2gazebo
+
+
+% TODO: Add in documentation for using the given stl file.
