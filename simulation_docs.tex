@@ -302,6 +302,14 @@ In this section, we shall assume that we would want to pass data between two mac
  \item{
        Ensure that roscore is running on both machines \emph{M1} and \emph{M2}
        }
+ \item{
+       Run the following commands in separate terminals to sync up the two rosmasters on \emph{M1} and \emph{M2}
+       \begin{lstlisting}[language=bash]
+         $ rosrun fkie_master_discovery master_discovery
+         $ roslaunch fkie_master_sync master_sync.launch
+        \end{lstlisting}
+       
+       }
 \end{enumerate}
 
 \end{document}
