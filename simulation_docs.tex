@@ -39,6 +39,7 @@
 Robot modelling in urdf is rather tedious. Here are a couple of guides/tips which I have found useful.
 
 
+%TODO: add in a section of useful tools
 
 \begin{itemize}
  \item {
@@ -240,8 +241,15 @@ In most cases, the generated meshes are too large for gazebo to render at a high
 \end{enumerate}
 
 \section{multimaster\_fkie}
-Multimaster\_fkie is a collection of packages which allows topics to be passed between separate devices.
-\subsection{Setup and Installation }
+Multimaster\_fkie is a collection of packages which allows topics to be passed between separate devices, while running separate masters.
+
+
+\subsection{Networking}
+\begin{itemize}
+ \item { All machines should be connected to the same local network}
+ \item{ DCHP reservation could be used to ensure that the machines have a static IP address}
+\end{itemize}
+\subsection{Package Installation }
 \begin{enumerate}
  \item {
        Enter the following lines to install the package dependencies.
@@ -260,10 +268,40 @@ Multimaster\_fkie is a collection of packages which allows topics to be passed b
  \item{
        Lastly, run catkin\_make to build the package.
        }
-       
-       
        % roslaunch fkie_master_discovery master_discovery.launch
+\end{enumerate}
+\subsection{Setup \& Usage}
+
+In this section, we shall assume that we would want to pass data between two machines, \emph{M1} and \emph{M2}.
+
+\begin{enumerate}
+ \item {
+       Firstly, ensure that the multimaster\_fkie package is installed on both machines.
+       }
+ \item{
+       Next, run the \emph{ifconfig} command on \emph{M1} and \emph{M2} and note down the  assigned ip address.
+       }
+ \item{
+       Next, navigate to the \emph{etc} directory and run the following command
+       \begin{lstlisting}[language=bash]
+        $ sudo gedit hosts
+        \end{lstlisting}
+       }
+ \item{
+       Add the ip addresses of M1 and M2 to the hosts file (replace the fake ip-addresses with real ones and replace \emph{M1} and \emph{M2} with the actual names of your machines)
        
+       \begin{lstlisting}[language=bash]
+       #for ROS multimaster
+       12.13.14.15 M1
+       14.13.153.134 M2
+        \end{lstlisting}
+       }
+ \item{
+       Repeat steps 3 and 4 on  the other machine. (eg. \emph{M2})
+       }
+ \item{
+       Ensure that roscore is running on both machines \emph{M1} and \emph{M2}
+       }
 \end{enumerate}
 
 \end{document}
