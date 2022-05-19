@@ -311,5 +311,34 @@ In this section, we shall assume that we would want to pass data between two mac
        
        }
 \end{enumerate}
+% TODO:  add in a section for testing the connection(using the turtlesim package to test out the communicaton)
+\subsection{Testing}
+\begin{enumerate}
+ \item {
+       Firstly, ensure that roscore, the discovery and the master sync nodes are running on both machines \emph{M1} and \emph{M2}.
+       }
+ \item{
+       Next, run the following command to check if both masters are known by the discovery node.
+       Ideally, both masters on the separate machines should be listed here.
+       \begin{lstlisting}[language=bash]
+         $ rosservice call /master_discovery/list_masters
+        \end{lstlisting}
+       }
+ \item{
+       Next, run the following command in \emph{M1} to run the turtlesim node.
+       \begin{lstlisting}[language=bash]
+          $ rosrun turtlesim turtlesim_node
+        \end{lstlisting}
+       }
+ \item{
+       Next, run the following command in \emph{M2} to run the turtlesim teleop node.
+       \begin{lstlisting}[language=bash]
+          $ rosrun turtlesim turtle_teleop_key
+        \end{lstlisting}
+       }
+ \item{
+       Thus, if all went well, pressing the arrow keys on \emph{M2} should move the turtle on \emph{M1}.
+       }
+\end{enumerate}
 
 \end{document}
