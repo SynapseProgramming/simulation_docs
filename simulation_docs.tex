@@ -39,8 +39,6 @@
 Robot modelling in urdf is rather tedious. Here are a couple of guides/tips which I have found useful.
 
 
-%TODO: add in a section of useful tools
-
 \begin{itemize}
  \item {
        \href{https://nu-msr.github.io/me495_site/lecture06_modeling.html}{URDF/xacro guide}
@@ -60,6 +58,11 @@ Robot modelling in urdf is rather tedious. Here are a couple of guides/tips whic
        \end{lstlisting}
        }
        
+\end{itemize}
+\section{Useful Tools}
+\begin{itemize}
+ \item {Fusion 360 - A CAD software. Quite useful for measuring the dimensions of mesh files }
+ \item { Mesh Lab - A piece of software to visualise and manipulate mesh files.}
 \end{itemize}
 
 
@@ -101,10 +104,13 @@ Robot modelling in urdf is rather tedious. Here are a couple of guides/tips whic
        }
        
        % TODO: add in the fake_world package once done.
+       % add back the excluded stl mesh files.
+       % not sure if this package should be stored in gitlab or gitub
 \end{enumerate}
 
 \section{Package Overview}
-% TODO: add in the worlds file in package overview
+\subsection{world}
+The world folder is used to store gazebo .world files. .world files are used to describe the surrounding environment in Gazebo.
 \subsection{urdf}
 The urdf folder is used to store (.urdf.xacro) and (.gazebo.xacro) files.
 \begin{itemize}
@@ -167,7 +173,6 @@ In most cases, the generated meshes are too large for gazebo to render at a high
        click on file > export mesh as > (enter mesh name and select \emph{.stl} file type)
        }
 \end{enumerate}
-% TODO: add in a section on how to simply meshes in meshlab
 
 
 \section{Gazebo World from 2D Map}
@@ -311,7 +316,6 @@ In this section, we shall assume that we would want to pass data between two mac
        
        }
 \end{enumerate}
-% TODO:  add in a section for testing the connection(using the turtlesim package to test out the communicaton)
 \subsection{Testing}
 \begin{enumerate}
  \item {
