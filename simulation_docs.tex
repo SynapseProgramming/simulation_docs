@@ -238,4 +238,28 @@ In most cases, the generated meshes are too large for gazebo to render at a high
        
        }
 \end{enumerate}
+
+\section{multimaster\_fkie}
+Multimaster\_fkie is a collection of packages which allows topics to be passed between separate devices.
+\subsection{Setup and Installation }
+\begin{enumerate}
+ \item {
+       Enter the following lines to install the package dependencies.
+       \begin{lstlisting}[language=bash]
+       $ sudo add-apt-repository ppa:roehling/grpc
+       $ sudo apt update
+       $ sudo apt install python-grpcio python-grpc-tools
+        \end{lstlisting}
+       }
+ \item{
+       Next, navigate to your catkin/src folder and run the following command.
+       \begin{lstlisting}[language=bash]
+         $ git clone https://github.com/fkie/multimaster_fkie.git multimaster
+        \end{lstlisting}
+       }
+ \item{
+       Lastly, run catkin\_make to build the package.
+       }
+\end{enumerate}
+
 \end{document}
