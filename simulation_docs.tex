@@ -157,7 +157,7 @@ The rviz folder is used to store the various rviz configs.
 % TODO: complete the section on how to scale and manipulate stl files so that the mesh could be easily integrated into rviz
 
 \section{Mesh Manipulation}
-\subsection{Reducing the quality of a mesh}
+\subsection{Reducing the quality of a mesh (Mesh Lab)}
 In most cases, the generated meshes are too large for gazebo to render at a high framerate. Thus, we would have to reduce the resolution of our meshes.
 \begin{enumerate}
  \item {
@@ -173,6 +173,29 @@ In most cases, the generated meshes are too large for gazebo to render at a high
        click on file > export mesh as > (enter mesh name and select \emph{.stl} file type)
        }
 \end{enumerate}
+\subsection{Scaling Down a mesh (Fusion 360) }
+\begin{enumerate}
+ \item {
+       Click on insert > insert mesh
+       }
+ \item {
+       Select the correct units for the given mesh and select center position.
+       }
+ \item {
+       Click on mesh > modify > scale mesh
+       }
+ \item {
+       Click on the mesh and apply a scale factor of 0.1
+       }
+ \item {
+       Repeat steps 3 and 4 repeatedly until the desired scale factor is achieved (for example, this process would have to be repeated 3 times to scale from \emph{mm} to \emph{m} )
+       }
+ \item{
+       Save the project, and export the final mesh as a .stl file.
+       }
+\end{enumerate}
+
+
 
 
 \section{Gazebo World from 2D Map}
