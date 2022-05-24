@@ -218,9 +218,16 @@ Each stl file has a origin. In most cases, we would want to modify the origin fo
        \includegraphics[width=8cm]{images/centeredwheel}
        }
        
-       
 \end{enumerate}
+\emph{In most cases, the centered origin is used to as the centre of mass. Thus, intertia is computed with respect to the centered origin.}
+\subsubsection{Translating \& rotating a mesh}
+\begin{itemize}
+ \item {
+       Under filters > Normals Curvature and Orientation, there are a few transform operations which could carried out on the mesh.
+       }
+\end{itemize}
 
+\emph{Do take note of the translation between the center origin of the mesh, and the final origin of the mesh as we would have to take that into account when defining the intertia reference frame.}
 \section{Computing Intertia of meshes}
 
 
