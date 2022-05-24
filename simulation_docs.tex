@@ -216,12 +216,6 @@ Each stl file has a origin. In most cases, we would want to modify the origin fo
  \item{
        Select translate center of bbox to the origin and click apply.
        
-       \begin{figure}[!htb]
-        \centering
-        \includegraphics[width=0.5\textwidth]{images/centeredwheel}
-        \caption{Wheel mesh with centered origin}
-       \end{figure}
-       
        }
        
 \end{enumerate}
@@ -235,6 +229,43 @@ Each stl file has a origin. In most cases, we would want to modify the origin fo
 
 \emph{Do take note of the translation between the center origin of the mesh, and the final origin of the mesh as we would have to take that into account when defining the intertia reference frame.}
 \section{Computing Intertia of meshes}
+In Gazebo, the inertia parameters should be well defined as they are used by the physics engine.
+Incorrect inertia parameters may result in odd occurences such as sliding on the spot.
+\subsection{Key Variables}
+\begin{itemize}
+ \item {
+       scaling factor $s$
+       \begin{itemize}
+        \item {URDF uses $m$ (metres) to measure distance.}
+        \item{ Most \emph{.stl} files would be in $mm$ (milimetres) }
+        \item{In this case, scaling factor $s=10^3$}
+       \end{itemize}
+       }
+ \item{
+       Mesh Origin
+       
+       The center origin of the mesh would be used as the reference frame for intertia.
+       
+       Therefore, if the center origin of the mesh is not used as the main origin for the current part, we would have to
+       specify the translation from the main origin to the center origin.
+       
+       
+       \begin{figure}[!htb]
+        \centering
+        \includegraphics[width=0.5\textwidth]{images/centeredwheel}
+        \caption{Wheel mesh with centered origin}
+       \end{figure}
+       
+       
+       \begin{figure}[!htb]
+        \centering
+        \includegraphics[width=0.5\textwidth]{images/offcenteredwheel}
+        \caption{Wheel mesh with off-centered origin}
+       \end{figure}
+       }
+\end{itemize}
+
+
 
 
 
