@@ -1,5 +1,6 @@
 \documentclass[11pt]{article}
 \usepackage{graphicx}
+\usepackage[english]{babel}
 \graphicspath{ {./images/} }
 
 \usepackage[T1]{fontenc}
@@ -215,7 +216,12 @@ Each stl file has a origin. In most cases, we would want to modify the origin fo
  \item{
        Select translate center of bbox to the origin and click apply.
        
-       \includegraphics[width=8cm]{images/centeredwheel}
+       \begin{figure}[!htb]
+        \centering
+        \includegraphics[width=0.5\textwidth]{images/centeredwheel}
+        \caption{Wheel mesh with centered origin}
+       \end{figure}
+       
        }
        
 \end{enumerate}
