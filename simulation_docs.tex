@@ -305,14 +305,33 @@ Incorrect inertia parameters may result in odd occurences such as sliding on the
                \end{bmatrix}
               $$
               }
-              
+        \item{
+              As the mesh used in this example is in $mm$, the mesh volume would be in ${mm}^3$
+              }
        \end{itemize}
        
        }
-       
 \end{enumerate}
-
-
+\subsection{Importing Inertia Values into URDF}
+\begin{enumerate}
+ \item {
+       
+       Each element in the inertia matrix would have to be scaled down by $s^5$, where $s$ is the scaling factor.
+       (eg. s=$10^3$ for a mesh in $mm$. Thus, each $I$ value would have to be multiplied by $10^{-15}$)
+       
+       $$
+        \frac{1}{s^5}
+        \begin{bmatrix}
+         I_{xx} & I_{xy} & I_{xz} \\
+         I_{xy} & I_{yy} & I_{yz} \\
+         I_{xz} & I_{yz} & I_{zz} \\
+        \end{bmatrix}
+       $$
+       }
+ \item{
+       As the generated mesh volume is in ${mm}^3$, we would have to multiply the mesh volume by $10^{-9}$ to scale it to $m^3$.
+       }
+\end{enumerate}
 
 
 \section{Gazebo World from 2D Map}
