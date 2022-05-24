@@ -2,6 +2,7 @@
 \usepackage{graphicx}
 \usepackage[english]{babel}
 \usepackage{amsmath}
+\usepackage[section]{placeins}
 \graphicspath{ {./images/} }
 
 \usepackage[T1]{fontenc}
@@ -333,7 +334,11 @@ Incorrect inertia parameters may result in odd occurences such as sliding on the
        }
  \item{
        Lastly, we would have to fill up the inertia tag in the URDF file.
-       
+       \begin{itemize}
+        \item { \emph{origin} tag should be filled with the translation from the main origin to the center origin (if neccessary)}
+        \item { \emph{inertia} tag should be filled with the scaled inertia values. }
+        \item { \emph{mass} tag should be filled with the scaled mesh volume (meshlab assumes a density of 1).}
+       \end{itemize}
        \begin{lstlisting}[language=bash]
     <inertial>
       <origin xyz="0 0 0"/>
@@ -346,7 +351,13 @@ Incorrect inertia parameters may result in odd occurences such as sliding on the
        
        }
 \end{enumerate}
-
+\subsection{Verifying Inertia Values}
+If the inertia values were computed correctly, then the mesh should have a pink box surrounding the mesh in Gazebo (view > inertia)
+\begin{figure}[!h]
+ \centering
+ \includegraphics[width=0.5\textwidth]{images/inertiawheel}
+ \caption{Wheel with inertia bounding box}
+\end{figure}
 
 \section{Gazebo World from 2D Map}
 \subsection{Setup \& Installation}
