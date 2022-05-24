@@ -194,7 +194,30 @@ In most cases, the generated meshes are too large for gazebo to render at a high
        Save the project, and export the final mesh as a .stl file.
        }
 \end{enumerate}
-
+\section{Computing Intertia of meshes}
+\subsection{Setting up the mesh}
+\begin{enumerate}
+ \item {
+       
+       Firstly, we should define the origin of the mesh to be at its center.
+       \begin{enumerate}
+        \item {
+              Import a mesh into meshlab.
+              }
+        \item{
+              click on render > show axis
+              }
+        \item{
+              click on filters > Normals Curvature and Orientation > Transform: Move, Translate, Center
+              }
+        \item{
+              Select translate center of bbox to the origin and click apply.
+              }
+              
+       \end{enumerate}
+       
+       }
+\end{enumerate}
 
 
 
