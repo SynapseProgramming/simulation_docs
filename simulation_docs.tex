@@ -436,7 +436,7 @@ Multimaster\_fkie is a collection of packages which allows topics to be passed b
 \subsection{Networking}
 \begin{itemize}
  \item { All machines should be connected to the same local network}
- \item{ DCHP reservation could be used to ensure that the machines have a static IP address}
+ \item{ DHCP reservation could be used to ensure that the machines have a static IP address}
 \end{itemize}
 \subsection{Package Installation }
 \begin{enumerate}
@@ -465,7 +465,7 @@ In this section, we shall assume that we would want to pass data between two mac
 
 \begin{enumerate}
  \item {
-       Firstly, ensure that the multimaster\_fkie package is installed on both machines.
+       Ensure that the multimaster\_fkie package is installed on both machines.
        }
  \item{
        Next, run the \emph{ifconfig} command on \emph{M1} and \emph{M2} and note down the  assigned ip address.
@@ -477,9 +477,13 @@ In this section, we shall assume that we would want to pass data between two mac
         \end{lstlisting}
        }
  \item{
-       Add the ip addresses of M1 and M2 to the hosts file (replace the fake ip-addresses with real ones and replace \emph{M1} and \emph{M2} with the actual names of your machines)
+       Add the ip addresses of M1 and M2 to the hosts file (replace the fake ip-addresses with real ones and replace \emph{M1} and \emph{M2} with the names of your machines)
        
+       (example hosts file for \emph{M1})
        \begin{lstlisting}[language=bash]
+       127.0.0.1 localhost
+       127.0.1.1 M1
+
        #for ROS multimaster
        12.13.14.15 M1
        14.13.153.134 M2
