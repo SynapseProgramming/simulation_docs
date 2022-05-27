@@ -76,14 +76,14 @@ Robot modelling in urdf is rather tedious. Here are a couple of guides/tips whic
 \begin{enumerate}
  \item{Install the joint state publisher:
        \begin{lstlisting}[language=bash]
-               $ sudo apt install ros-melodic-joint-state-publisher-gui
+$ sudo apt install ros-melodic-joint-state-publisher-gui
        \end{lstlisting}
        }
  \item{
        Next, git clone realsense package into your catkin/src folder.
        
        \begin{lstlisting}[language=bash]
-       $ git clone https://github.com/pal-robotics/realsense_gazebo_plugin.git
+$ git clone https://github.com/SynapseProgramming/realsense_gazebo_plugin.git
        \end{lstlisting}
        }
        
@@ -92,7 +92,7 @@ Robot modelling in urdf is rather tedious. Here are a couple of guides/tips whic
        Next, git clone the map2gazebo package into your catkin/src folder
        
        \begin{lstlisting}[language=bash]
-       $ git clone https://github.com/SynapseProgramming/map2gazebo.git
+$ git clone https://github.com/SynapseProgramming/map2gazebo.git
        \end{lstlisting}
        }
        
@@ -466,6 +466,9 @@ In this section, we shall assume that we would want to pass data between two mac
 \begin{enumerate}
  \item {
        Ensure that the multimaster\_fkie package is installed on both machines.
+       }
+ \item {
+       Ensure that only one networking option is enabled (either wifi or ethernet)
        }
  \item{
        Next, run the \emph{ifconfig} command on \emph{M1} and \emph{M2} and note down the  assigned ip address.
