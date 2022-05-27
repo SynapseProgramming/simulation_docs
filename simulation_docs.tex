@@ -535,5 +535,38 @@ In this section, we shall assume that we would want to pass data between two mac
        Thus, if all went well, pressing the arrow keys on \emph{M2} should move the turtle on \emph{M1}.
        }
 \end{enumerate}
+\section{Gzweb}
+\subsection{Setup \& Installation}
+\begin{enumerate}
+ \item {
+       Firstly, open a new terminal and enter the following commands.
+       you may wish to refer to \href{https://classic.gazebosim.org/tutorials?tut=gzweb_install&cat=gzweb}{\emph{this gazebo webpage}}
+       \begin{lstlisting}[language=bash]
+$ sudo apt install gazebo9 libgazebo9-dev
+$ sudo apt install libjansson-dev libboost-dev imagemagick libtinyxml-dev mercurial cmake build-essential
+$ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+$ source ~/.bashrc
+$ nvm install 8
+$ cd ~; git clone https://github.com/osrf/gzweb
+$ cd ~/gzweb
+$ git checkout gzweb_1.4.1
+$ npm run deploy --- -m
+       \end{lstlisting}
+       }
+ \item{
+       Next, navigate to the
+       gzweb/http/client/assets
+       directory and copy and paste the fake\_world package in the assets directory.
+       }
+ \item { Navigate to the gzweb directory and run \emph{npm install} and \emph{npm start}}
+ \item{
+       Lastly, open a new terminal and run the following command.
+       \begin{lstlisting}[language=bash]
+$ roslaunch fake_world simulate_cub_gweb.launch
+       \end{lstlisting}
+       
+       }
+\end{enumerate}
+
 
 \end{document}
