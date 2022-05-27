@@ -558,15 +558,18 @@ $ npm run deploy --- -m
        gzweb/http/client/assets
        directory and copy and paste the fake\_world package in the assets directory.
        }
- \item { Navigate to the gzweb directory and run \emph{npm install} and \emph{npm start}}
+ \item { Navigate to the gzweb directory and run \emph{npm install}}
+\end{enumerate}
+\subsection{Usage}
+\begin{enumerate}
+
+ \item { Navigate to the gzweb directory and run \emph{npm start}}
  \item{
-       Lastly, open a new terminal and run the following command.
+       Lastly, ensure that the launch file in the simulation package has the GUI tag disabled, before proceeding to enter the roslaunch command.
        \begin{lstlisting}[language=bash]
-$ roslaunch fake_world simulate_cub_gweb.launch
+          <arg name="gui" value="false"/>
        \end{lstlisting}
-       
        }
 \end{enumerate}
-
 
 \end{document}
