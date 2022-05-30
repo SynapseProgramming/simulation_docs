@@ -575,4 +575,23 @@ $ npm run deploy --- -m
        }
 \end{enumerate}
 
+\section{Animating Models in Gazebo}
+\begin{itemize}
+ \item {
+       To animate models in Gazebo, we would have to write a model plugin, and specify that plugin from within the model tag.
+       }
+ \item {
+       In the world file, the name of the plugin would be
+       lib<name of plugin in Cmake>.so
+       
+       \begin{lstlisting}[language=bash]
+         #in CMake
+         add_library(movebox src/movebox.cc)
+         #In .world file
+        <plugin name="push_animate" filename="libmovebox.so"/>
+       \end{lstlisting}
+       
+       }
+\end{itemize}
+
 \end{document}
