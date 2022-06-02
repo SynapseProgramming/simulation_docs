@@ -593,5 +593,23 @@ $ npm run deploy --- -m
        
        }
 \end{itemize}
+\section{Converting from urdf.xacro to urdf \& sdf}
+\begin{enumerate}
+ \item {
+       To convert a existing urdf.xacro file to a urdf file, please run the following command (and replace
+       bot with the name of your file)
+       \begin{lstlisting}[language=bash]
+$ xacro bot.urdf.xacro > bot.urdf
+\end{lstlisting}
+       }
+ \item {
+       To convert a existing urdf file to a sdf file, please run the following command (and replace
+       bot with the name of your file)
+       \begin{lstlisting}[language=bash]
+$ gz sdf -p bot.urdf > bot.sdf
+\end{lstlisting}
+       }
+       
+\end{enumerate}
 
 \end{document}
