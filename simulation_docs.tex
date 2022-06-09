@@ -141,6 +141,14 @@ The urdf folder is used to store (.urdf.xacro) and (.gazebo.xacro) files.
        Thus, to define the position of the depth camera on the robot, we would have to provide the transformation from base link to the bottom screw frame link
        }
 \end{itemize}
+\subsubsection{cub\_full\_robosense.urdf.xacro}
+Cub with a robosense Helios-5515 3D lidar.
+\subsubsection{cub\_full\_urdf.xacro}
+Cub complete with all depth cameras, sonar, bumper and lidar sensors.
+\subsubsection{cub\_full\_shifted\_urdf.xacro}
+URDF file used to test camera extrinsics calibration.
+\subsubsection{cub\_full\_issac\_urdf.xacro}
+URDF file used to test issac sim stuff.
 
 \subsection{meshes}
 The meshes folder is used to store the various mesh files of the robot(.stl .dae).
@@ -158,6 +166,9 @@ The rviz folder is used to store the various rviz configs.
        }
  \item{
        Launch files titled view\_<robot>.launch are used to view the robots urdf model in rviz.
+       }
+ \item{
+       Launch files titled <stuff>\_robosense.launch are used to launch cub models with a robosense Helios 3D lidar.
        }
 \end{itemize}
 
@@ -648,7 +659,7 @@ $ gz sdf -p bot.urdf > bot.sdf
 \end{lstlisting}
        }
  \item{
-       You may wish to refer to the \emph{example.urdf.xacro} file which can be found in the \emph{urdf} directory of the Robosense simulator package. 
+       You may wish to refer to the \emph{example.urdf.xacro} file which can be found in the \emph{urdf} directory of the Robosense simulator package.
        
        }
 \end{itemize}
