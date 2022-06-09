@@ -3,6 +3,7 @@
 \usepackage[english]{babel}
 \usepackage{amsmath}
 \usepackage[section]{placeins}
+\usepackage{hyperref}
 \graphicspath{ {./images/} }
 
 \usepackage[T1]{fontenc}
@@ -607,6 +608,7 @@ $ npm run deploy --- -m
        }
 \end{itemize}
 \section{Converting from urdf.xacro to urdf \& sdf}
+\label{sec:conversion}
 \begin{enumerate}
  \item {
        To convert a existing urdf.xacro file to a urdf file, please run the following command (and replace
@@ -626,6 +628,7 @@ $ gz sdf -p bot.urdf > bot.sdf
 \end{enumerate}
 
 \section{RoboSense Helios-5515 3D lidar}
+
 \subsection{Installation}
 \begin{enumerate}
  \item {Firstly, git clone the \textbf{robosense\_simulator\_Helios\_5515} package into your catkin/src folder and run catkin\_make}
@@ -663,4 +666,40 @@ $ gz sdf -p bot.urdf > bot.sdf
        
        }
 \end{itemize}
+\section{How to add collision checks (bumper sensors) in Gazebo}
+\begin{enumerate}
+ \item {
+       The first step would be to add the following sensor tag to a gazebo reference (link).
+       
+       Do change the tags accordingly.
+       \begin{lstlisting}[language=xml]
+  <gazebo reference="left_bumper">
+    <sensor type="contact" name="left_bumper_contact_sensor">
+      <selfCollide>true</selfCollide>
+      <update_rate>10.0</update_rate>
+      <always_on>1</always_on>
+      <contact>
+        <collision>
+          base_footprint_fixed_joint_lump__left_bumper_collision_8
+        </collision>
+      </contact>
+      <plugin name="gazebo_ros_bumper_controller" filename="libgazebo_ros_bumper.so">
+        <bumperTopicName>/left_bumper</bumperTopicName>
+        <update_rate>10.0</update_rate>
+        <always_on>1</always_on>
+        <frameName>base_link</frameName>
+      </plugin>
+    </sensor>
+  </gazebo>
+\end{lstlisting}
+       }
+ \item {
+       The collision tag is slightly problematic. To fill up the collision tag properly, please generate the
+       sdf file of your robot model by following the steps in \hyperref[sec:conversion]{\textbf{this}} section.
+       }
+ \item {
+       Next, open up the generated \emph{.sdf} file and ctrl+f the name of your link. Copy the name of your link which ends with \emph{\_collision\_X} and paste it in the collisions tag.
+       
+       }
+\end{enumerate}
 \end{document}
