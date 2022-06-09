@@ -614,4 +614,42 @@ $ gz sdf -p bot.urdf > bot.sdf
        
 \end{enumerate}
 
+\section{RoboSense Helios-5515 3D lidar}
+\subsection{Installation}
+\begin{enumerate}
+ \item {Firstly, git clone the \textbf{robosense\_simulator\_Helios\_5515} package into your catkin/src folder and run catkin\_make}
+ \item{
+       \textbf{(optional) update gazebo to version 9.4.0++}
+       
+       \begin{itemize}
+        \item { This step is required if you want the GPU to compute the pointcloud.}
+        \item {
+              \textbf{If you do not carry out this step, please set \emph{gpu="false"} in the \emph{xacro::RS-5515 tag}
+              }
+              
+              }
+        \item{
+              Navigate to the robosense\_simulator\_Helios\_5515 directory and refer to \emph{gazebo\_upgrade.md} for a more detailed explanation on the upgrade process.
+              }
+       \end{itemize}
+       }
+\end{enumerate}
+\subsection{Usage}
+\begin{itemize}
+ \item {
+       After installing the package, please add the following lines to your robots \emph{.urdf.xacro} file.
+       \begin{lstlisting}[language=xml]
+
+  <xacro:include filename="$(find robosense_description)/urdf/RS-5515.urdf.xacro"/>
+
+  <xacro:RS-5515 parent="base_link" name="helios" hz="10" samples="1800" gpu="true" noise="0.002">
+    <origin xyz="0 0 1.35" rpy="0 0 0"/>
+  </xacro:RS-5515>
+\end{lstlisting}
+       }
+ \item{
+       You may wish to refer to the \emph{example.urdf.xacro} file which can be found in the \emph{urdf} directory of the Robosense simulator package. 
+       
+       }
+\end{itemize}
 \end{document}
