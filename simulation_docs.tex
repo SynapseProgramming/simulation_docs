@@ -330,12 +330,26 @@ Incorrect inertia parameters may result in odd occurences such as sliding on the
 \subsection{Importing Inertia Values into URDF}
 \begin{enumerate}
  \item {
+       Let $v$ be the volume of the mesh in $m^3$
+       
+       As the generated mesh volume is in ${cm}^3$, we would have to multiply the mesh volume by $10^{-6}$ to scale it to $m^3$.
+       
+       $v=575.673584\times10^{-6}$
+       }
+ \item {
+       Let $m$ be the mass of the given object in $kg$
+       
+       In this case, we will assume that the wheel weighs $5kg$
+       }
+ \item {
        
        Each element in the inertia matrix would have to be scaled down by $s^5$, where $s$ is the scaling factor.
        (eg. s=$10^2$ for a mesh in $cm$. Thus, each $I$ value would have to be multiplied by $10^{-10}$)
        
+       Furthermore, each element in the inertia matrix would have to be multiplied by mass $m$ and divided by volume $v$
+       
        $$
-        \frac{1}{s^5}
+        \frac{m}{vs^5}
         \begin{bmatrix}
          I_{xx} & I_{xy} & I_{xz} \\
          I_{xy} & I_{yy} & I_{yz} \\
@@ -344,25 +358,22 @@ Incorrect inertia parameters may result in odd occurences such as sliding on the
        $$
        }
  \item{
-       As the generated mesh volume is in ${cm}^3$, we would have to multiply the mesh volume by $10^{-6}$ to scale it to $m^3$.
-       }
- \item{
-       Lastly, we would have to fill up the inertia tag in the URDF file.
+       Next, we would have to fill up the inertia tag in the URDF file.
        \begin{itemize}
         \item { \emph{origin} tag should be filled with the translation from the main origin to the center origin (if neccessary)}
         \item { \emph{inertia} tag should be filled with the scaled inertia values. }
-        \item { \emph{mass} tag should be filled with the scaled mesh volume (meshlab assumes a density of 1).}
+        \item { \emph{mass} tag should be filled with mass $m$.}
        \end{itemize}
        \begin{lstlisting}[language=bash]
     <inertial>
       <origin xyz="0 0 0"/>
-      <mass value="575.673584e-6"/>
-      <inertia ixx="10287.553711e-10" ixy="2.708637e-10" ixz="0.324480e-10" iyy="6752.031738e-10" iyz="-0.408100e-10" izz="6754.208984e-10"/>
+      <mass value="5"/>
+      <inertia ixx="0.00893523" ixy="2.35258e-06" ixz="2.81826e-07" iyy="0.00586446" iyz="-3.54454e-07" izz="0.00586635"/>
     </inertial>
-
        \end{lstlisting}
-       
-       
+       }
+ \item {
+       In the simulation, the center of mass may cause the robot to drift forward. Therefore, the origin inertia tag should be tuned if needed.
        }
 \end{enumerate}
 \subsection{Verifying Inertia Values}
