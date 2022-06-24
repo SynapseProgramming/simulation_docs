@@ -1,6 +1,7 @@
 \documentclass[11pt]{article}
 \usepackage{graphicx}
 \usepackage[english]{babel}
+\usepackage{float}
 \usepackage{amsmath}
 \usepackage[section]{placeins}
 \usepackage{hyperref}
@@ -378,11 +379,32 @@ Incorrect inertia parameters may result in odd occurences such as sliding on the
 \end{enumerate}
 \subsection{Verifying Inertia Values}
 If the inertia values were computed correctly, then the mesh should have a pink box surrounding the mesh in Gazebo (view > inertia)
-\begin{figure}[!h]
+\begin{figure}[H]
  \centering
  \includegraphics[width=0.5\textwidth]{images/inertiawheel}
  \caption{Wheel with inertia bounding box}
 \end{figure}
+
+\subsection{Closed Inertia Formulas}
+\subsubsection{Solid Sphere}
+\begin{itemize}
+ \item {
+       $m$ Mass in \emph{kg}
+       }
+       
+ \item {
+       $r$ radius of sphere in metres
+       }
+\end{itemize}
+
+$$
+ \begin{bmatrix}
+  I_{xx}=\frac{2}{5}mr^2 & I_{xy}=0               & I_{xz}=0               \\
+  I_{xy}=0               & I_{yy}=\frac{2}{5}mr^2 & I_{yz}=0               \\
+  I_{xz}=0               & I_{yz}=0               & I_{zz}=\frac{2}{5}mr^2 \\
+ \end{bmatrix}
+$$
+
 
 \section{Gazebo World from 2D Map}
 \subsection{Setup \& Installation}
