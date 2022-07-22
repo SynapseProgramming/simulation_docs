@@ -787,13 +787,33 @@ Please refer to
        
        Measurement is the distance between two vertices in the map (eg. a wall represented by two vertices on each end and one edge that connects them). A incorrect measurement would result in map scaling issues.
        
-       \begin{figure}[!htb]
+       \begin{figure}[H]
         \centering
         \includegraphics[width=0.9\textwidth]{images/dimension}
         \caption{Dimension (in pink) of column (width of 1 metre in real life)}
        \end{figure}
        }
  \item {Save the map. (ensure that the building.yaml file is generated)}
+\end{enumerate}
+\subsubsection{Export to simulation package}
+\begin{enumerate}
+ \item {Navigate to the directory which contains the <worldname>.building.yaml file.}
+ \item {
+       Run the following command to generate the <worldname>.world file and <worldname> mesh folder.
+       \begin{lstlisting}[language=bash]
+        $ ros2 run rmf_building_map_tools building_map_generator gazebo <worldname>.building.yaml <worldname>.world .
+        \end{lstlisting}
+       }
+ \item {
+       \begin{itemize}
+        \item {
+              Copy the generated <worldname>.world file into the world folder of the simulation package.
+              }
+        \item {
+              Copy the generated <worldname> mesh folder into the meshes folder of the simulation package.
+              }
+       \end{itemize}
+       }
 \end{enumerate}
 
 
