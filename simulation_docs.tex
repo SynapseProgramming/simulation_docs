@@ -735,4 +735,42 @@ $ gz sdf -p bot.urdf > bot.sdf
        
        }
 \end{enumerate}
+\section{RMF Traffic Editor}
+RMF traffic editor is a tool for generating worlds in gazebo.
+\subsection{Installation}
+RMF traffic editor is a ROS2 based package. As such, do ensure that you have sourced the correct ROS2 setup.bash files.
+\subsubsection{System Requirements}
+\begin{itemize}
+ \item {ROS2 Foxy}
+ \item {Ububtu 20.04}
+\end{itemize}
+\subsubsection{Package Installation}
+\begin{enumerate}
+ \item {
+       Install RMF related binaries:
+       
+       \begin{lstlisting}[language=bash]
+         $ sudo apt get install ros-foxy-rmf-*
+          \end{lstlisting}
+       }
+ \item{
+       Install python3 dependencies
+       \begin{lstlisting}[language=bash]
+         $ pip install shapely fiona rtree pyproj
+        \end{lstlisting}
+       }
+ \item {
+       Clone and install the rmf traffic editor package to your \textbf{colcon workspace} and run colcon build.
+       \begin{lstlisting}[language=bash]
+         $ git clone https://github.com/open-rmf/rmf_traffic_editor.git
+        \end{lstlisting}
+       
+       }
+ \item {
+       Open up a new terminal and run the following command to launch traffic editor.
+       \begin{lstlisting}[language=bash]
+         $ traffic-editor
+        \end{lstlisting}
+       }
+\end{enumerate}
 \end{document}
