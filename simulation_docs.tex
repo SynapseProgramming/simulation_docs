@@ -815,6 +815,24 @@ Please refer to
        \end{itemize}
        }
 \end{enumerate}
+\subsubsection{Modify Wall Height}
+\begin{enumerate}
+ \item {open the wall.py file (available at):
+       \begin{lstlisting}[language=bash]
+         rmf_traffic_editor > rmf_building_map_tools > building_map > wall.py
+        \end{lstlisting}
+       }
+ \item {
+       Modify the wall height at line 16
+       \begin{lstlisting}[language=python]
+        self.wall_height = 2.5  # meters
+        \end{lstlisting}
+       }
+ \item {Run colcon build}
+ \item{
+       Rebuild the <worldname>.world and mesh files
+       }
+\end{enumerate}
 
 
 \end{document}
