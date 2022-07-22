@@ -773,4 +773,28 @@ RMF traffic editor is a ROS2 based package. As such, do ensure that you have sou
         \end{lstlisting}
        }
 \end{enumerate}
+\subsection{Map Generation}
+Please refer to
+\href{ https://osrf.github.io/ros2multirobotbook/traffic-editor.html}{\textbf{this}} document about the basic functions of traffic editor.
+\subsubsection{1 Floor Map Generation}
+\begin{enumerate}
+ \item {Click on the \textbf{levels} tab and click add}
+ \item {Provide a suitable map image and map name.}
+ \item {Add walls}
+ \item {Add a floor polygon (\textbf{save and re-launch} traffic editor to view the floor polygon)}
+ \item {
+       Add a single \textbf{measurement} in the map (pink line between vertices)
+       
+       Measurement is the distance between two vertices in the map (eg. a wall represented by two vertices on each end and one edge that connects them). A incorrect measurement would result in map scaling issues.
+       
+       \begin{figure}[!htb]
+        \centering
+        \includegraphics[width=0.9\textwidth]{images/dimension}
+        \caption{Dimension (in pink) of column (width of 1 metre in real life)}
+       \end{figure}
+       }
+ \item {Save the map. (ensure that the building.yaml file is generated)}
+\end{enumerate}
+
+
 \end{document}
