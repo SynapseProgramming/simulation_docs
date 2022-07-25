@@ -602,10 +602,23 @@ $ npm run deploy --- -m
        \end{lstlisting}
        }
  \item{
-       Next, navigate to the
-       gzweb/http/client/assets
-       directory and copy and paste the fake\_world package in the assets directory.
+       Next, navigate to the gzweb/http/client/assets directory.
+       \begin{enumerate}
+        \item {
+              Copy the media directory into the assets directory.
+              \begin{lstlisting}[language=bash]
+$ cp -R /usr/share/gazebo-11/media gzweb/http/client/assets/
+              \end{lstlisting}
+              }
+        \item{
+              Copy all of the meshes within lb\_simulation/meshes to the assets folder.
+              }
+        \item {
+              Copy the entire lb\_description package to the assets folder.
+              }
+       \end{enumerate}
        }
+ \item { Navigate to the gzweb directory and run \emph{npm run deploy --- -m local}}
  \item { Navigate to the gzweb directory and run \emph{npm install}}
 \end{enumerate}
 \subsection{Usage}
