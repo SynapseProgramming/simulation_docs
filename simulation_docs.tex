@@ -760,17 +760,16 @@ RMF traffic editor is a ROS2 based package. As such, do ensure that you have sou
 \end{itemize}
 \subsubsection{Package Installation}
 \begin{enumerate}
- \item {
-       Install RMF related binaries:
-       
-       \begin{lstlisting}[language=bash]
-         $ sudo apt install ros-foxy-rmf-*
-          \end{lstlisting}
-       }
  \item{
        Install python3 dependencies
        \begin{lstlisting}[language=bash]
          $ pip install shapely fiona rtree pyproj
+        \end{lstlisting}
+       }
+ \item {
+       Clone and install the rmf utils package to your \textbf{colcon workspace}
+       \begin{lstlisting}[language=bash]
+        $ git clone https://github.com/open-rmf/rmf_utils.git
         \end{lstlisting}
        }
  \item {
@@ -784,6 +783,13 @@ RMF traffic editor is a ROS2 based package. As such, do ensure that you have sou
        Open up a new terminal and run the following command to launch traffic editor.
        \begin{lstlisting}[language=bash]
          $ traffic-editor
+        \end{lstlisting}
+       }
+ \item {
+       Once traffic editor has been launched, click on edit -> preferences
+       and select the following file path for thumbnails.
+       \begin{lstlisting}[language=bash]
+       <workspace_dir>/install/traffic_editor_assets/share/assets/thumbnails
         \end{lstlisting}
        }
 \end{enumerate}
@@ -861,7 +867,7 @@ Gazebo-compatible meshes could be downloaded from \href{https://app.gazebosim.or
        \begin{lstlisting}[language=bash]
          $ gzserver -s libthumbnail_generator.so empty.world --verbose --input <model filepath>/model.sdf --output .
         \end{lstlisting}
-       A single .png image should be generated.
+       A single .png image should be generated. (It would have the same name as the generated mesh)
        }
  \item {
        Next, navigate to the following directory (within the traffic editor ROS2 package), and create a new directory called Custom.
