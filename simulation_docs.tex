@@ -847,6 +847,52 @@ Please refer to
        Rebuild the <worldname>.world and mesh files
        }
 \end{enumerate}
+\subsection{Add custom meshes}
+To add custom meshes into RMF traffic editor, we would have to generate their thumbnails. Thumbnails are top down views of a mesh model.
+
+Gazebo-compatible meshes could be downloaded from \href{https://app.gazebosim.org/dashboard}{\emph{this}} website.
+\subsubsection{Thumbnail Generation}
+\begin{enumerate}
+ \item {
+       Navigate to the folder of the model to be imported into traffic editor. (It should contain a model.sdf file)
+       }
+ \item {
+       Run the following command.
+       \begin{lstlisting}[language=bash]
+         $ gzserver -s libthumbnail_generator.so empty.world --verbose --input <model filepath>/model.sdf --output .
+        \end{lstlisting}
+       A single .png image should be generated.
+       }
+ \item {
+       Next, navigate to the following directory (within the traffic editor ROS2 package), and create a new directory called Custom.
+       \begin{lstlisting}[language=bash]
+rmf_traffic_editor/rmf_traffic_editor_assets/assets/thumbnails/images/cropped
+        \end{lstlisting}
+       }
+       Paste all generated thumbnails in the Custom folder.
+ \item  {
+       Next, navigate to the following directory (within the traffic editor ROS2 package)
+       \begin{lstlisting}[language=bash]
+rmf_traffic_editor/rmf_traffic_editor_assets/assets/thumbnails
+        \end{lstlisting}
+       }
+ \item {
+       Insert the new thumbnails into the model\_list.yaml file. (eg. shelf is a new thumbnail.)
+       \begin{lstlisting}[language=bash]
+  meters_per_pixel: 0.004
+models:
+- Custom/Shelf
+- Custom/aws_robomaker_warehouse_ShelfF_01
+- Custom/aws_robomaker_warehouse_ShelfE_01
+- OpenRobotics/AdjTable
+- OpenRobotics/AirportBench
+...
+  \end{lstlisting}
+       }
+ \item {
+       Lastly, run colcon build. The meshes should be available in traffic editor.
+       }
+\end{enumerate}
 
 
 \end{document}
