@@ -875,6 +875,37 @@ Please refer to
        Rebuild the <worldname>.world and mesh files
        }
 \end{enumerate}
+\subsubsection{Lifts}
+\begin{enumerate}
+ \item {
+       Add a single vertex in the map. This vertex would represent the centre of the lift.
+       Do take note of the x and y pixel value.
+       \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.8\textwidth]{images/lift_centre}
+        \caption{Vertex that represents the centre of the lift}
+       \end{figure}
+       }
+ \item {
+       Click on the lift tab and add a new lift.
+       }
+ \item {
+       Fill up the lift popup.
+       \begin{figure}[H]
+        \centering
+        \includegraphics[width=1.0\textwidth]{images/lift_filled}
+        \caption{Lift popup}
+       \end{figure}
+       There are a few key points to take note.
+       \begin{enumerate}
+        \item {\textbf{door name} must \textbf{not} contain any spaces}
+        \item {\textbf{X and Y} values should be filled with x and y pixel values of the centre vertex. }
+        \item {Ensure that the \textbf{yes} plugin checkbox is selected }
+              
+       \end{enumerate}
+       
+       }
+\end{enumerate}
 \subsection{Add custom meshes}
 To add custom meshes into RMF traffic editor, we would have to generate their thumbnails. Thumbnails are top down views of a mesh model.
 
