@@ -65,7 +65,7 @@ Robot modelling in urdf is rather tedious. Here are a couple of guides/tips whic
         /usr/share/gazebo-9/worlds
        \end{lstlisting}
        }
-       
+
 \end{itemize}
 \section{Useful Tools}
 \begin{itemize}
@@ -90,29 +90,29 @@ $ sudo apt install ros-melodic-joint-state-publisher-gui
 $ git clone https://github.com/SynapseProgramming/realsense_gazebo_plugin.git
        \end{lstlisting}
        }
-       
+
  \item{
        % https://github.com/SynapseProgramming/map2gazebo.git
        Next, git clone the map2gazebo package into your catkin/src folder
-       
+
        \begin{lstlisting}[language=bash]
 $ git clone https://github.com/SynapseProgramming/map2gazebo.git
        \end{lstlisting}
        }
-       
-       
+
+
  \item{
        Enter the following command into the terminal to setup gazebo environment variables
        \begin{lstlisting}[language=bash]
        $ echo "source /usr/share/gazebo/setup.sh" >> ~/.bashrc
        $ source ~/.bashrc
        \end{lstlisting}
-       
+
        }
  \item{
        Lastly, remember to run the cakin\_make command.
        }
-       
+
        % TODO: add in the fake_world package once done.
        % add back the excluded stl mesh files.
        % not sure if this package should be stored in gitlab or gitub
@@ -138,7 +138,7 @@ The urdf folder is used to store (.urdf.xacro) and (.gazebo.xacro) files.
        }
  \item{
        The (\_d435.urdf.xacro) file is used to describe the various frames of the depth camera.
-       
+
        The (<camera>\_bottom\_screw\_frame) is used as the main reference point for the depth camera. It is centered about the bottom tripod mount of the depth camera.
        Thus, to define the position of the depth camera on the robot, we would have to provide the transformation from base link to the bottom screw frame link
        }
@@ -163,7 +163,7 @@ The rviz folder is used to store the various rviz configs.
 \subsection{launch}
 \begin{itemize}
  \item{
-       
+
        The launch folder is used to store roslaunch files. Launch files titled simulate\_<robotname>.launch are used to launch the gazebo simulation environment and rviz.
        }
  \item{
@@ -232,9 +232,9 @@ Each stl file has a origin. In most cases, we would want to modify the origin fo
        }
  \item{
        Select translate center of bbox to the origin and click apply.
-       
+
        }
-       
+
 \end{enumerate}
 \emph{In most cases, the centered origin is used to as the centre of mass. Thus, intertia is computed with respect to the centered origin.}
 \subsubsection{Translating \& rotating a mesh}
@@ -260,20 +260,20 @@ Incorrect inertia parameters may result in odd occurences such as sliding on the
        }
  \item{
        Mesh Origin
-       
+
        The center origin of the mesh would be used as the reference frame for intertia.
-       
+
        Therefore, if the center origin of the mesh is not used as the main origin for the current part, we would have to
        specify the translation from the main origin to the center origin.
-       
-       
+
+
        \begin{figure}[!htb]
         \centering
         \includegraphics[width=0.5\textwidth]{images/centeredwheel}
         \caption{Wheel mesh with centered origin}
        \end{figure}
-       
-       
+
+
        \begin{figure}[!htb]
         \centering
         \includegraphics[width=0.5\textwidth]{images/offcenteredwheel}
@@ -325,30 +325,30 @@ Incorrect inertia parameters may result in odd occurences such as sliding on the
               As the mesh used in this example is in $cm$, the mesh volume would be in ${cm}^3$
               }
        \end{itemize}
-       
+
        }
 \end{enumerate}
 \subsection{Importing Inertia Values into URDF}
 \begin{enumerate}
  \item {
        Let $v$ be the volume of the mesh in $m^3$
-       
+
        As the generated mesh volume is in ${cm}^3$, we would have to multiply the mesh volume by $10^{-6}$ to scale it to $m^3$.
-       
+
        $v=575.673584\times10^{-6}$
        }
  \item {
        Let $m$ be the mass of the given object in $kg$
-       
+
        In this case, we will assume that the wheel weighs $5kg$
        }
  \item {
-       
+
        Each element in the inertia matrix would have to be scaled down by $s^5$, where $s$ is the scaling factor.
        (eg. s=$10^2$ for a mesh in $cm$. Thus, each $I$ value would have to be multiplied by $10^{-10}$)
-       
+
        Furthermore, each element in the inertia matrix would have to be multiplied by mass $m$ and divided by volume $v$
-       
+
        $$
         \frac{m}{vs^5}
         \begin{bmatrix}
@@ -391,7 +391,7 @@ If the inertia values were computed correctly, then the mesh should have a pink 
  \item {
        $m$ Mass in \emph{kg}
        }
-       
+
  \item {
        $r$ radius of sphere in metres
        }
@@ -419,11 +419,11 @@ $$
  \item{
        Clone the \href{https://github.com/SynapseProgramming/map2gazebo.git
        }{\emph{map2gazebo}} repository into your catkin/src folder.
-       
+
        }
  \item{
        Navigate to the \emph{map2gazebo} package in your catkin/src folder and run the following commands.
-       
+
        \begin{lstlisting}[language=bash]
          $ pip install --user trimesh
          $ pip install --user numpy
@@ -450,7 +450,7 @@ $$
  \item{
        Then, run the following command to generate the \emph{map.stl} at a given directory. (replace
        \emph{/home/roald/Desktop/generatedmaps} with your own path)
-       
+
        \begin{lstlisting}[language=bash]
         $ roslaunch map2gazebo map2gazebo.launch export_dir:=/home/roald/Desktop/generatedmaps
         \end{lstlisting}
@@ -472,7 +472,7 @@ $$
        \begin{lstlisting}[language=bash]
        $ roslaunch fake_world simulate_cub_lab.launch
         \end{lstlisting}
-       
+
        }
 \end{enumerate}
 
@@ -529,7 +529,7 @@ In this section, we shall assume that we would want to pass data between two mac
        }
  \item{
        Add the ip addresses of M1 and M2 to the hosts file (replace the fake ip-addresses with real ones and replace \emph{M1} and \emph{M2} with the names of your machines)
-       
+
        (example hosts file for \emph{M1})
        \begin{lstlisting}[language=bash]
        127.0.0.1 localhost
@@ -552,7 +552,7 @@ In this section, we shall assume that we would want to pass data between two mac
          $ rosrun fkie_master_discovery master_discovery
          $ roslaunch fkie_master_sync master_sync.launch
         \end{lstlisting}
-       
+
        }
 \end{enumerate}
 \subsection{Testing}
@@ -644,14 +644,14 @@ $ cp -R /usr/share/gazebo-11/media gzweb/http/client/assets/
  \item {
        In the world file, the name of the plugin would be
        lib<name of plugin in Cmake>.so
-       
+
        \begin{lstlisting}[language=bash]
          #in CMake
          add_library(movebox src/movebox.cc)
          #In .world file
         <plugin name="push_animate" filename="libmovebox.so"/>
        \end{lstlisting}
-       
+
        }
 \end{itemize}
 \section{Converting from urdf.xacro to urdf \& sdf}
@@ -671,7 +671,7 @@ $ xacro bot.urdf.xacro > bot.urdf
 $ gz sdf -p bot.urdf > bot.sdf
 \end{lstlisting}
        }
-       
+
 \end{enumerate}
 
 \section{RoboSense Helios-5515 3D lidar}
@@ -681,13 +681,13 @@ $ gz sdf -p bot.urdf > bot.sdf
  \item {Firstly, git clone the \textbf{robosense\_simulator\_Helios\_5515} package into your catkin/src folder and run catkin\_make}
  \item{
        \textbf{(optional) update gazebo to version 9.4.0++}
-       
+
        \begin{itemize}
         \item { This step is required if you want the GPU to compute the pointcloud.}
         \item {
               \textbf{If you do not carry out this step, please set \emph{gpu="false"} in the \emph{xacro::RS-5515 tag}
               }
-              
+
               }
         \item{
               Navigate to the robosense\_simulator\_Helios\_5515 directory and refer to \emph{gazebo\_upgrade.md} for a more detailed explanation on the upgrade process.
@@ -710,14 +710,14 @@ $ gz sdf -p bot.urdf > bot.sdf
        }
  \item{
        You may wish to refer to the \emph{example.urdf.xacro} file which can be found in the \emph{urdf} directory of the Robosense simulator package.
-       
+
        }
 \end{itemize}
 \section{How to add collision checks (bumper sensors) in Gazebo}
 \begin{enumerate}
  \item {
        The first step would be to add the following sensor tag to a gazebo reference (link).
-       
+
        Do change the tags accordingly.
        \begin{lstlisting}[language=xml]
   <gazebo reference="left_bumper">
@@ -746,7 +746,7 @@ $ gz sdf -p bot.urdf > bot.sdf
        }
  \item {
        Next, open up the generated \emph{.sdf} file and ctrl+f the name of your link. Copy the name of your link which ends with \emph{\_collision\_X} and paste it in the collisions tag.
-       
+
        }
 \end{enumerate}
 \section{RMF Traffic Editor}
@@ -777,7 +777,7 @@ RMF traffic editor is a ROS2 based package. As such, do ensure that you have sou
        \begin{lstlisting}[language=bash]
          $ git clone https://github.com/open-rmf/rmf_traffic_editor.git
         \end{lstlisting}
-       
+
        }
  \item {
        Open up a new terminal and run the following command to launch traffic editor.
@@ -804,9 +804,9 @@ Please refer to
  \item {Add a floor polygon. Right click to save the polygon. (\textbf{save and re-launch} traffic editor to view the floor polygon)}
  \item {
        Add a single \textbf{measurement} in the map (pink line between vertices)
-       
+
        Measurement is the distance between two vertices in the map (eg. a wall represented by two vertices on each end and one edge that connects them). A incorrect measurement would result in map scaling issues.
-       
+
        \begin{figure}[H]
         \centering
         \includegraphics[width=0.9\textwidth]{images/dimension}
@@ -828,7 +828,7 @@ Please refer to
         \includegraphics[width=0.5\textwidth]{images/Level1Fucd}
         \caption{Fiducial on level 1}
        \end{figure}
-       
+
        \begin{figure}[H]
         \centering
         \includegraphics[width=0.5\textwidth]{images/Level2Fucd}
@@ -901,9 +901,9 @@ Please refer to
         \item {\textbf{door name} must \textbf{not} contain any spaces}
         \item {\textbf{X and Y} values should be filled with x and y pixel values of the centre vertex. }
         \item {Ensure that the \textbf{yes} plugin checkbox is selected }
-              
+
        \end{enumerate}
-       
+
        }
 \end{enumerate}
 \subsection{Add custom meshes}
@@ -958,5 +958,28 @@ of the lb\_simulation package. In general, all meshes included in the .world fil
 \begin{lstlisting}[language=bash]
 <workspace>/src/lb_simulation/lb_simulation/meshes
 \end{lstlisting}
+\section{Lifts}
+\subsection{Structure}
+\begin{figure}[H]
+ \centering
+ \includegraphics[width=0.3\textwidth]{images/LiftServer}
+\end{figure}
+\begin{enumerate}
+ \item Each lift is managed by a single lift plugin.
+ \item The Lift Server node controls/manages all lifts in the map.
+\end{enumerate}
+\subsection{How to call lifts}
+\begin{enumerate}
+ \item {
+       The robot would call the /get\_lift service of type lb\_navigation\_msgs
+       }
+ \item {
+       The service server would randomly assign a lift to the robot.
+
+       The assigned lift would be sent to the robot in the service response.
+       }
+ \item  Lift would head to the floor that the robot is on.
+ \item  Afterwards, lift would head to the destination floor.
+\end{enumerate}
 
 \end{document}
